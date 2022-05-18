@@ -1,0 +1,14 @@
+---
+
+catalog_app_name: catalog-app
+
+catalog_db_name: catalog-database
+catalog_db_replicas: 1
+catalog_db_image: quay.io/globex-recommendation/catalog-database:0f2bc23
+catalog_db_user: catalog
+catalog_db_password: catalog
+catalog_db_database: catalog
+
+catalog_service_name: catalog-service
+catalog_service_replicas: 1
+catalog_service_image: quay.io/globex-recommendation/catalog:c11361a

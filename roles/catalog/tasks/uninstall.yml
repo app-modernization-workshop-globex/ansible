@@ -1,0 +1,28 @@
+---
+
+- name: "uninstall catalog app"
+  k8s:
+    state: absent
+    api_version: "{{ item.api_version }}"
+    kind: "{{ item.kind }}"
+    namespace: "{{ application_namespace }}"
+    name: "{{ item.name }}"
+  loop:
+    - api_version: v1
+      kind: service
+      name: "{{ catalog_service_name }}"
+    - api_version: apps/v1
+      kind: deployment
+      name: "{{ catalog_service_name }}"
+    - api_version: v1
+      kind: service
+      name: "{{ catalog_db_name }}"
+    - api_version: apps/v1
+      kind: deployment
+      name: "{{ catalog_db_name }}"
+    - api_version: v1
+      kind: secret
+      name: "{{ catalog_db_name }}"
+    - api_version: v1
+      kind: serviceaccount
+      name: "{{ catalog_app_name }}"

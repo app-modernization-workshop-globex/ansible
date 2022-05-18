@@ -1,0 +1,14 @@
+---
+
+- name: "create openshift resources for catalog app"
+  k8s:
+    state: present
+    namespace: "{{ application_namespace }}"
+    definition: "{{ lookup('template', item ) | from_yaml }}"
+  loop:
+    - "serviceaccount.yml.j2"
+    - "catalog-database/deployment.yml.j2"
+    - "catalog-database/secret.yml.j2"
+    - "catalog-database/service.yml.j2"
+    - "catalog-service/deployment.yml.j2"
+    - "catalog-service/service.yml.j2"

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/name: {{ catalog_db_name }}
+    app.openshift.io/runtime: postgresql
+    app.kubernetes.io/part-of: {{ catalog_app_name }}
+  name: {{ catalog_db_name }}
+spec:
+  replicas: {{ catalog_db_replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ catalog_db_name }}
+      app.kubernetes.io/part-of: {{ catalog_app_name }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: {{ catalog_db_name }}
+        app.kubernetes.io/part-of: {{ catalog_app_name }}
+        name: {{ catalog_db_name }}
+    spec:
+      containers:
+        - image: {{ catalog_db_image }}
+          imagePullPolicy: IfNotPresent
+          name: {{ catalog_db_name }}
+          ports:
+            - name: postgresql
+              containerPort: 5432
+              protocol: TCP
+          resources: {}
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ catalog_db_name }}
+                  key: database-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ catalog_db_name }}
+                  key: database-password
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ catalog_db_name }}
+                  key: database-name
+      serviceAccountName: {{ catalog_app_name }}
+      serviceAccount: {{ catalog_app_name }}

@@ -11,3 +11,7 @@
 - name: "install inventory app"
   import_role:
     name: inventory
+
+- name: "install catalog app"
+  import_role:
+    name: catalog

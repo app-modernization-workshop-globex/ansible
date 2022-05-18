@@ -9,6 +9,5 @@ inventory_db_user: inventory
 inventory_db_password: inventory
 inventory_db_database: inventory
 
-inventory_service_name: inventory-service
 inventory_service_replicas: 1
 inventory_service_image: quay.io/globex-recommendation/inventory:3f38c2f

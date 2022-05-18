@@ -1,5 +1,10 @@
 ---
 
+- name: "uninstall catalog app"
+  import_role:
+    name: catalog
+    tasks_from: uninstall
+
 - name: "uninstall inventory app"
   import_role:
     name: inventory
