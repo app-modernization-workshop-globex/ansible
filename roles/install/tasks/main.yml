@@ -3,3 +3,7 @@
 - name: "install Service Binding operator"
   import_role:
     name: servicebinding-operator
+
+- name: "install RHOAS operator"
+  import_role:
+    name: rhoas-operator
