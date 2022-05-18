@@ -1,1 +1,3 @@
 [all:vars]
+
+application_namespace=globex

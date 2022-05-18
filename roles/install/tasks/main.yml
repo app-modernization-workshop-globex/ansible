@@ -1,0 +1,5 @@
+---
+
+- name: "install Service Binding operator"
+  import_role:
+    name: servicebinding-operator
