@@ -1,3 +1,13 @@
 ---
 
 inventory_service_name: inventory-service
+
+catalog_service_name: catalog-service
+catalog_service_paginated_products_path: services/products
+catalog_service_product_details_path: services/product/list/
+
+activity_tracking_service_name: activity-tracking
+activity_tracking_service_post_activity_path: track
+
+recommendation_engine_name: recommendation-engine
+recommendation_engine_recommended_products_path: score/product

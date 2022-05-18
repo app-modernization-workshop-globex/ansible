@@ -1,5 +1,10 @@
 ---
 
+- name: "uninstall globex ui app"
+  import_role:
+    name: globex-ui
+    tasks_from: uninstall
+
 - name: "uninstall catalog app"
   import_role:
     name: catalog

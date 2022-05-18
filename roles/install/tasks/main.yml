@@ -15,3 +15,7 @@
 - name: "install catalog app"
   import_role:
     name: catalog
+
+- name: "install globex ui app"
+  import_role:
+    name: globex-ui

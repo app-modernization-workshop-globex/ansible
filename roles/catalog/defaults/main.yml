@@ -9,6 +9,5 @@ catalog_db_user: catalog
 catalog_db_password: catalog
 catalog_db_database: catalog
 
-catalog_service_name: catalog-service
 catalog_service_replicas: 1
 catalog_service_image: quay.io/globex-recommendation/catalog:c11361a
