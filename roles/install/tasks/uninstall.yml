@@ -1,1 +1,6 @@
 ---
+
+- name: "uninstall inventory app"
+  import_role:
+    name: inventory
+    tasks_from: uninstall

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/name: {{ inventory_db_name }}
+    app.openshift.io/runtime: postgresql
+    app.kubernetes.io/part-of: {{ inventory_app_name }}
+  name: {{ inventory_db_name }}
+spec:
+  replicas: {{ inventory_db_replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ inventory_db_name }}
+      app.kubernetes.io/part-of: {{ inventory_app_name }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: {{ inventory_db_name }}
+        app.kubernetes.io/part-of: {{ inventory_app_name }}
+        name: {{ inventory_db_name }}
+    spec:
+      containers:
+        - image: {{ inventory_db_image }}
+          imagePullPolicy: IfNotPresent
+          name: {{ inventory_db_name }}
+          ports:
+            - name: postgresql
+              containerPort: 5432
+              protocol: TCP
+          resources: {}
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ inventory_db_name }}
+                  key: database-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ inventory_db_name }}
+                  key: database-password
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ inventory_db_name }}
+                  key: database-name
+      serviceAccountName: {{ inventory_app_name }}
+      serviceAccount: {{ inventory_app_name }}

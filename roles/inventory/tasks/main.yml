@@ -1,0 +1,14 @@
+---
+
+- name: "create openshift resources for inventory app"
+  k8s:
+    state: present
+    namespace: "{{ application_namespace }}"
+    definition: "{{ lookup('template', item ) | from_yaml }}"
+  loop:
+    - "serviceaccount.yml.j2"
+    - "inventory-database/deployment.yml.j2"
+    - "inventory-database/secret.yml.j2"
+    - "inventory-database/service.yml.j2"
+    - "inventory-service/deployment.yml.j2"
+    - "inventory-service/service.yml.j2"

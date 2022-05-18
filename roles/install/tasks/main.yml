@@ -7,3 +7,7 @@
 - name: "install RHOAS operator"
   import_role:
     name: rhoas-operator
+
+- name: "install inventory app"
+  import_role:
+    name: inventory

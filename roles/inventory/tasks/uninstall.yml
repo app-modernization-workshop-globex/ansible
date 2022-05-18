@@ -1,0 +1,28 @@
+---
+
+- name: "uninstall inventory app"
+  k8s:
+    state: absent
+    api_version: "{{ item.api_version }}"
+    kind: "{{ item.kind }}"
+    namespace: "{{ application_namespace }}"
+    name: "{{ item.name }}"
+  loop:
+    - api_version: v1
+      kind: service
+      name: "{{ inventory_service_name }}"
+    - api_version: apps/v1
+      kind: deployment
+      name: "{{ inventory_service_name }}"
+    - api_version: v1
+      kind: service
+      name: "{{ inventory_db_name }}"
+    - api_version: apps/v1
+      kind: deployment
+      name: "{{ inventory_db_name }}"
+    - api_version: v1
+      kind: secret
+      name: "{{ inventory_db_name }}"
+    - api_version: v1
+      kind: serviceaccount
+      name: "{{ inventory_app_name }}"
