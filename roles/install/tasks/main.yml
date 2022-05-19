@@ -19,3 +19,7 @@
 - name: "install globex ui app"
   import_role:
     name: globex-ui
+
+- name: "install activity tracking app"
+  import_role:
+    name: activity-tracking

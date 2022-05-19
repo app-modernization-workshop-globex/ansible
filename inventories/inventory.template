@@ -1,3 +1,5 @@
 [all:vars]
 
 application_namespace=globex
+
+kafka_topics_prefix=globex

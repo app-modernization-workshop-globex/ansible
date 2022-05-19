@@ -1,5 +1,11 @@
 ---
 
+
+- name: "uninstall activity tracking app"
+  import_role:
+    name: activity-tracking
+    tasks_from: uninstall
+
 - name: "uninstall globex ui app"
   import_role:
     name: globex-ui
