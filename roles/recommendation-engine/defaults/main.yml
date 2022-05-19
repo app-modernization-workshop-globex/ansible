@@ -1,0 +1,15 @@
+---
+
+recommendation_engine_app_name: recommendation-engine
+
+recommendation_engine_replicas: 0
+recommendation_engine_image: quay.io/globex-recommendation/recommendation-engine:9a4f48f
+recommendation_engine_resources_cpu_request: 100m
+recommendation_engine_resources_cpu_limit: 250m
+recommendation_engine_resources_memory_request: 128Mi
+recommendation_engine_resources_memory_limit: 250Mi
+recommendation_engine_streams_application_id: "{{ kafka_topics_prefix }}.recommendation"
+recommendation_engine_streams_commit_interval: 10000
+recommendation_engine_streams_replication_factor: "{{ kafka_topic_replication_factor }}"
+recommendation_engine_streams_topics: "{{ kafka_topics_prefix }}.{{ activity_tracking_service_tracking_topic }}"
+recommendation_engine_tracking_event_topic: "{{ kafka_topics_prefix }}.{{ activity_tracking_service_tracking_topic }}"

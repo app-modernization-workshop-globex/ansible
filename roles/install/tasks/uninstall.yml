@@ -1,5 +1,9 @@
 ---
 
+- name: "uninstall recommendation engine app"
+  import_role:
+    name: recommendation-engine
+    tasks_from: uninstall
 
 - name: "uninstall activity tracking app"
   import_role:

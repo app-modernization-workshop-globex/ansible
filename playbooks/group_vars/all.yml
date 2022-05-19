@@ -8,6 +8,7 @@ catalog_service_product_details_path: services/product/list/
 
 activity_tracking_service_name: activity-tracking
 activity_tracking_service_post_activity_path: track
+activity_tracking_service_tracking_topic: tracking
 
 recommendation_engine_name: recommendation-engine
 recommendation_engine_recommended_products_path: score/product

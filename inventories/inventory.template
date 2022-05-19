@@ -3,3 +3,5 @@
 application_namespace=globex
 
 kafka_topics_prefix=globex
+
+kafka_topic_replication_factor=1

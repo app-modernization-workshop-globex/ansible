@@ -8,5 +8,3 @@ activity_tracking_service_resources_cpu_request: 100m
 activity_tracking_service_resources_cpu_limit: 100m
 activity_tracking_service_resources_memory_request: 128Mi
 activity_tracking_service_resources_memory_limit: 250Mi
-
-activity_tracking_service_tracking_topic: tracking

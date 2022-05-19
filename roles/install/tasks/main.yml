@@ -23,3 +23,7 @@
 - name: "install activity tracking app"
   import_role:
     name: activity-tracking
+
+- name: "install recommendation engine app"
+  import_role:
+    name: recommendation-engine
