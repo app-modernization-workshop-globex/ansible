@@ -27,3 +27,7 @@
 - name: "install recommendation engine app"
   import_role:
     name: recommendation-engine
+
+- name: "install activity tracking simulator"
+  import_role:
+    name: activity-tracking-simulator

@@ -1,0 +1,12 @@
+---
+
+- name: "create openshift resources for activity tracking simulator"
+  k8s:
+    state: present
+    namespace: "{{ application_namespace }}"
+    definition: "{{ lookup('template', item ) | from_yaml }}"
+  loop:
+    - "serviceaccount.yml.j2"
+    - "deployment.yml.j2"
+    - "service.yml.j2"
+    - "route.yml.j2"

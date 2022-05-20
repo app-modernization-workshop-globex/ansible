@@ -1,0 +1,5 @@
+---
+
+activity_tracking_simulator_name: activity-tracking-simulator
+activity_tracking_simulator_replicas: 1
+activity_tracking_simulator_image: quay.io/globex-recommendation/activity-tracking-simulator:e69950d

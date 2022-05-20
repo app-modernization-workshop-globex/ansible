@@ -1,5 +1,10 @@
 ---
 
+- name: "uninstall activity tracking simulator"
+  import_role:
+    name: activity-tracking-simulator
+    tasks_from: uninstall
+
 - name: "uninstall recommendation engine app"
   import_role:
     name: recommendation-engine

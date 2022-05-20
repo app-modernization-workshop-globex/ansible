@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ activity_tracking_simulator_name }}
+  labels:
+    app.kubernetes.io/name: {{ activity_tracking_simulator_name }}
+    app.kubernetes.io/part-of: {{ activity_tracking_simulator_name }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ activity_tracking_simulator_name }}
