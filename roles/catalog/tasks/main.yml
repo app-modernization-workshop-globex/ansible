@@ -12,3 +12,4 @@
     - "catalog-database/service.yml.j2"
     - "catalog-service/deployment.yml.j2"
     - "catalog-service/service.yml.j2"
+    - "catalog-service/route.yml.j2"
