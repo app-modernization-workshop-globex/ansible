@@ -4,5 +4,5 @@ globex_ui_app_name: globex-ui
 
 globex_ui_name: globex-ui
 globex_ui_replicas: 1
-globex_ui_image: quay.io/globex-recommendation/globex-recommendation-ui:9fedc9b
+globex_ui_image: quay.io/globex-recommendation/globex-recommendation-ui:latest
 globex_ui_node_env: prod
